@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Data Dosen</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+
+    <!-- NAVBAR -->
+
+    <nav class="navbar">
+
+        <div class="nav-logo">
+            🎓 Aplikasi Akademik
+        </div>
+
+
+        <div class="nav-menu">
+
+            <a href="index.html">
+                Beranda
+            </a>
+
+            <a href="mahasiswa.html">
+                Mahasiswa
+            </a>
+
+            <a
+                href="dosen.html"
+                class="active"
+            >
+                Dosen
+            </a>
+
+        </div>
+
+    </nav>
+
+
+
+    <!-- MAIN -->
+
+    <main class="container">
+
+
+        <div class="page-header">
+
+            <div>
+
+                <p class="page-label">
+                    PANEL DOSEN
+                </p>
+
+                <h1>
+                    Data Dosen
+                </h1>
+
+                <p>
+                    Kelola informasi dosen dan input nilai mahasiswa.
+                </p>
+
+            </div>
+
+
+            <a
+                href="index.html"
+                class="back-button"
+            >
+                ← Kembali
+            </a>
+
+        </div>
+
+
+
+        <!-- DATA DOSEN -->
+
+        <section class="card">
+
+
+            <div class="card-title">
+
+                <span class="card-icon">
+                    👨‍🏫
+                </span>
+
+
+                <div>
+
+                    <h2>
+                        Biodata Dosen
+                    </h2>
+
+                    <p>
+                        Masukkan data dosen
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <form id="formDosen">
+
+
+                <div class="form-grid">
+
+
+                    <div class="form-group">
+
+                        <label for="namaDosen">
+                            Nama Lengkap
+                        </label>
+
+                        <input
+                            type="text"
+                            id="namaDosen"
+                            placeholder="Masukkan nama dosen"
+                        >
+
+                    </div>
+
+
+
+                    <div class="form-group">
+
+                        <label for="nidn">
+                            NIDN / NIP
+                        </label>
+
+                        <input
+                            type="text"
+                            id="nidn"
+                            placeholder="Masukkan NIDN / NIP"
+                        >
+
+                    </div>
+
+
+
+                    <div class="form-group">
+
+                        <label for="prodiDosen">
+                            Program Studi
+                        </label>
+
+                        <select id="prodiDosen">
+
+                            <option value="">
+                                -- Pilih Program Studi --
+                            </option>
+
+                            <option value="Teknik Informatika">
+                                Teknik Informatika
+                            </option>
+
+                            <option value="Sistem Informasi">
+                                Sistem Informasi
+                            </option>
+
+                            <option value="Manajemen Informatika">
+                                Manajemen Informatika
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+
+                    <div class="form-group">
+
+                        <label for="mataKuliah">
+                            Mata Kuliah
+                        </label>
+
+                        <input
+                            type="text"
+                            id="mataKuliah"
+                            placeholder="Contoh: Pemrograman Visual"
+                        >
+
+                    </div>
+
+                </div>
+
+
+
+                <button
+                    type="submit"
+                    class="primary-button"
+                >
+                    Simpan Data Dosen
+                </button>
+
+
+            </form>
+
+
+        </section>
+
+
+
+        <!-- OUTPUT DOSEN -->
+
+        <section class="card">
+
+
+            <div class="card-title">
+
+                <span class="card-icon">
+                    📋
+                </span>
+
+
+                <div>
+
+                    <h2>
+                        Data Dosen
+                    </h2>
+
+                    <p>
+                        Informasi dosen yang dimasukkan
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <div
+                id="outputDosen"
+                class="output-box"
+            >
+
+                <p class="empty-message">
+                    Data dosen akan tampil di sini.
+                </p>
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- INPUT NILAI -->
+
+        <section class="card">
+
+
+            <div class="card-title">
+
+                <span class="card-icon">
+                    📝
+                </span>
+
+
+                <div>
+
+                    <h2>
+                        Input Nilai Mahasiswa
+                    </h2>
+
+                    <p>
+                        Dosen dapat memasukkan nilai mahasiswa
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <form id="formNilai">
+
+
+                <div class="form-grid">
+
+
+                    <div class="form-group">
+
+                        <label for="namaMahasiswaNilai">
+                            Nama Mahasiswa
+                        </label>
+
+                        <input
+                            type="text"
+                            id="namaMahasiswaNilai"
+                            placeholder="Nama mahasiswa"
+                        >
+
+                    </div>
+
+
+
+                    <div class="form-group">
+
+                        <label for="nimNilai">
+                            NIM
+                        </label>
+
+                        <input
+                            type="text"
+                            id="nimNilai"
+                            placeholder="NIM mahasiswa"
+                        >
+
+                    </div>
+
+
+
+                    <div class="form-group">
+
+                        <label for="nilaiAngka">
+                            Nilai Angka
+                        </label>
+
+                        <input
+                            type="number"
+                            id="nilaiAngka"
+                            min="0"
+                            max="100"
+                            placeholder="0 - 100"
+                        >
+
+                    </div>
+
+
+
+                    <div class="form-group">
+
+                        <label for="nilaiHuruf">
+                            Nilai Huruf
+                        </label>
+
+                        <select id="nilaiHuruf">
+
+                            <option value="">
+                                -- Pilih Nilai --
+                            </option>
+
+                            <option value="A">
+                                A
+                            </option>
+
+                            <option value="B+">
+                                B+
+                            </option>
+
+                            <option value="B">
+                                B
+                            </option>
+
+                            <option value="C+">
+                                C+
+                            </option>
+
+                            <option value="C">
+                                C
+                            </option>
+
+                            <option value="D">
+                                D
+                            </option>
+
+                            <option value="E">
+                                E
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+
+
+                <button
+                    type="submit"
+                    class="primary-button"
+                >
+                    Simpan Nilai
+                </button>
+
+
+            </form>
+
+
+        </section>
+
+
+
+        <!-- REKAP NILAI -->
+
+        <section class="card">
+
+
+            <div class="card-title">
+
+                <span class="card-icon">
+                    📊
+                </span>
+
+
+                <div>
+
+                    <h2>
+                        Rekap Nilai
+                    </h2>
+
+                    <p>
+                        Daftar nilai mahasiswa
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="table-wrapper">
+
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+
+                            <th>
+                                No
+                            </th>
+
+                            <th>
+                                Nama
+                            </th>
+
+                            <th>
+                                NIM
+                            </th>
+
+                            <th>
+                                Nilai
+                            </th>
+
+                            <th>
+                                Huruf
+                            </th>
+
+                            <th>
+                                Status
+                            </th>
+
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody id="tabelNilai">
+
+                        <tr>
+
+                            <td
+                                colspan="6"
+                                class="empty-table"
+                            >
+                                Belum ada data nilai.
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+
+            </div>
+
+
+        </section>
+
+
+    </main>
+
+
+
+    <footer class="main-footer">
+
+        <p>
+            Aplikasi Akademik © 2026
+        </p>
+
+    </footer>
+
+
+
+    <script src="script.js"></script>
+
+
+</body>
+</html>

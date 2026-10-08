@@ -1,0 +1,974 @@
+/* ================================
+   RESET
+================================ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+
+    background:
+        linear-gradient(
+            135deg,
+            #eef2ff,
+            #f8fafc
+        );
+
+    color: #1e293b;
+
+    min-height: 100vh;
+}
+
+
+/* ================================
+   LANDING PAGE
+================================ */
+
+.landing-page {
+
+    min-height: 100vh;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    padding: 30px 20px;
+}
+
+
+.landing-card {
+
+    width: 100%;
+
+    max-width: 950px;
+
+    background: white;
+
+    border-radius: 25px;
+
+    padding: 45px;
+
+    text-align: center;
+
+    box-shadow:
+        0 20px 50px
+        rgba(15, 23, 42, 0.12);
+}
+
+
+.logo {
+
+    width: 75px;
+
+    height: 75px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    margin: auto;
+
+    border-radius: 20px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #4f46e5,
+            #7c3aed
+        );
+
+    font-size: 38px;
+}
+
+
+.landing-card h1 {
+
+    margin-top: 20px;
+
+    font-size: 36px;
+
+    color: #111827;
+}
+
+
+.subtitle {
+
+    margin-top: 10px;
+
+    font-size: 17px;
+
+    color: #64748b;
+}
+
+
+.instruction {
+
+    margin-top: 35px;
+
+    margin-bottom: 20px;
+
+    font-weight: bold;
+
+    color: #475569;
+}
+
+
+/* ================================
+   ROLE CARD
+================================ */
+
+.role-container {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 25px;
+
+    margin-top: 25px;
+}
+
+
+.role-card {
+
+    text-decoration: none;
+
+    color: inherit;
+
+    padding: 30px;
+
+    border-radius: 20px;
+
+    border: 2px solid #e2e8f0;
+
+    transition:
+        0.3s ease;
+
+    background: #ffffff;
+}
+
+
+.role-card:hover {
+
+    transform: translateY(-7px);
+
+    border-color: #6366f1;
+
+    box-shadow:
+        0 15px 30px
+        rgba(79, 70, 229, 0.15);
+}
+
+
+.role-icon {
+
+    font-size: 55px;
+
+    margin-bottom: 15px;
+}
+
+
+.role-card h2 {
+
+    font-size: 23px;
+
+    margin-bottom: 10px;
+
+    color: #1e293b;
+}
+
+
+.role-card p {
+
+    color: #64748b;
+
+    line-height: 1.6;
+
+    margin-bottom: 20px;
+}
+
+
+.role-button {
+
+    display: inline-block;
+
+    background: #4f46e5;
+
+    color: white;
+
+    padding: 11px 18px;
+
+    border-radius: 10px;
+
+    font-size: 14px;
+
+    font-weight: bold;
+}
+
+
+/* ================================
+   FOOTER
+================================ */
+
+footer {
+
+    margin-top: 30px;
+
+    color: #94a3b8;
+
+    font-size: 13px;
+}
+
+
+/* ================================
+   NAVBAR
+================================ */
+
+.navbar {
+
+    width: 100%;
+
+    background: white;
+
+    padding: 18px 7%;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    box-shadow:
+        0 2px 15px
+        rgba(15, 23, 42, 0.08);
+
+    position: sticky;
+
+    top: 0;
+
+    z-index: 100;
+}
+
+
+.nav-logo {
+
+    font-size: 20px;
+
+    font-weight: bold;
+
+    color: #4f46e5;
+}
+
+
+.nav-menu {
+
+    display: flex;
+
+    gap: 10px;
+}
+
+
+.nav-menu a {
+
+    text-decoration: none;
+
+    color: #64748b;
+
+    padding: 9px 14px;
+
+    border-radius: 8px;
+
+    font-size: 14px;
+
+    font-weight: bold;
+}
+
+
+.nav-menu a:hover,
+.nav-menu a.active {
+
+    background: #eef2ff;
+
+    color: #4f46e5;
+}
+
+
+/* ================================
+   CONTAINER
+================================ */
+
+.container {
+
+    width: 90%;
+
+    max-width: 1100px;
+
+    margin: 40px auto;
+}
+
+
+.page-header {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 30px;
+}
+
+
+.page-label {
+
+    color: #6366f1;
+
+    font-size: 13px;
+
+    font-weight: bold;
+
+    letter-spacing: 1px;
+
+    margin-bottom: 8px;
+}
+
+
+.page-header h1 {
+
+    font-size: 32px;
+
+    color: #111827;
+
+    margin-bottom: 8px;
+}
+
+
+.page-header p:not(.page-label) {
+
+    color: #64748b;
+}
+
+
+.back-button {
+
+    text-decoration: none;
+
+    color: #4f46e5;
+
+    background: white;
+
+    border: 1px solid #c7d2fe;
+
+    padding: 11px 17px;
+
+    border-radius: 10px;
+
+    font-weight: bold;
+}
+
+
+/* ================================
+   CARD
+================================ */
+
+.card {
+
+    background: white;
+
+    padding: 30px;
+
+    margin-bottom: 25px;
+
+    border-radius: 20px;
+
+    box-shadow:
+        0 8px 30px
+        rgba(15, 23, 42, 0.07);
+}
+
+
+.card-title {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    margin-bottom: 25px;
+}
+
+
+.card-icon {
+
+    width: 48px;
+
+    height: 48px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    border-radius: 13px;
+
+    background: #eef2ff;
+
+    font-size: 24px;
+}
+
+
+.card-title h2 {
+
+    font-size: 20px;
+
+    color: #1e293b;
+
+    margin-bottom: 4px;
+}
+
+
+.card-title p {
+
+    color: #94a3b8;
+
+    font-size: 13px;
+}
+
+
+/* ================================
+   FORM
+================================ */
+
+.form-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 20px;
+}
+
+
+.form-group {
+
+    margin-bottom: 20px;
+}
+
+
+.form-group label {
+
+    display: block;
+
+    font-weight: bold;
+
+    font-size: 14px;
+
+    margin-bottom: 8px;
+
+    color: #334155;
+}
+
+
+input,
+select {
+
+    width: 100%;
+
+    padding: 13px 15px;
+
+    border: 1px solid #cbd5e1;
+
+    border-radius: 10px;
+
+    outline: none;
+
+    font-size: 14px;
+
+    background: white;
+
+    transition: 0.2s;
+}
+
+
+input:focus,
+select:focus {
+
+    border-color: #6366f1;
+
+    box-shadow:
+        0 0 0 3px
+        rgba(99, 102, 241, 0.12);
+}
+
+
+/* ================================
+   RADIO
+================================ */
+
+.radio-container {
+
+    display: flex;
+
+    gap: 20px;
+
+    flex-wrap: wrap;
+}
+
+
+.radio-option {
+
+    display: flex !important;
+
+    align-items: center;
+
+    gap: 7px;
+
+    font-weight: normal !important;
+}
+
+
+.radio-option input {
+
+    width: auto;
+}
+
+
+/* ================================
+   BUTTON
+================================ */
+
+.primary-button,
+.secondary-button {
+
+    border: none;
+
+    padding: 13px 20px;
+
+    border-radius: 10px;
+
+    cursor: pointer;
+
+    font-size: 14px;
+
+    font-weight: bold;
+
+    transition: 0.2s;
+}
+
+
+.primary-button {
+
+    background: #4f46e5;
+
+    color: white;
+}
+
+
+.primary-button:hover {
+
+    background: #4338ca;
+
+    transform: translateY(-2px);
+}
+
+
+.secondary-button {
+
+    background: #0f766e;
+
+    color: white;
+
+    margin-top: 5px;
+}
+
+
+.secondary-button:hover {
+
+    background: #115e59;
+}
+
+
+/* ================================
+   OUTPUT
+================================ */
+
+.output-box {
+
+    background: #f8fafc;
+
+    border-radius: 12px;
+
+    padding: 20px;
+
+    border: 1px solid #e2e8f0;
+}
+
+
+.empty-message {
+
+    color: #94a3b8;
+
+    text-align: center;
+
+    padding: 15px;
+}
+
+
+.data-list {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 15px;
+}
+
+
+.data-item {
+
+    background: white;
+
+    padding: 15px;
+
+    border-radius: 10px;
+
+    border: 1px solid #e2e8f0;
+}
+
+
+.data-item small {
+
+    display: block;
+
+    color: #94a3b8;
+
+    margin-bottom: 5px;
+}
+
+
+.data-item strong {
+
+    color: #1e293b;
+}
+
+
+/* ================================
+   IPK
+================================ */
+
+.ipk-result {
+
+    margin-top: 20px;
+
+    padding: 20px;
+
+    border-radius: 12px;
+
+    background: #eef2ff;
+
+    color: #3730a3;
+
+    font-size: 18px;
+
+    font-weight: bold;
+
+    text-align: center;
+}
+
+
+/* ================================
+   TABLE
+================================ */
+
+.table-wrapper {
+
+    width: 100%;
+
+    overflow-x: auto;
+}
+
+
+table {
+
+    width: 100%;
+
+    border-collapse: collapse;
+
+    min-width: 650px;
+}
+
+
+th,
+td {
+
+    padding: 13px;
+
+    text-align: left;
+
+    border-bottom: 1px solid #e2e8f0;
+
+    font-size: 14px;
+}
+
+
+th {
+
+    background: #f8fafc;
+
+    color: #475569;
+}
+
+
+td {
+
+    color: #64748b;
+}
+
+
+.empty-table {
+
+    text-align: center;
+
+    padding: 30px;
+
+    color: #94a3b8;
+}
+
+
+.status-lulus {
+
+    background: #dcfce7;
+
+    color: #166534;
+
+    padding: 5px 10px;
+
+    border-radius: 20px;
+
+    font-size: 12px;
+
+    font-weight: bold;
+}
+
+
+.status-tidak {
+
+    background: #fee2e2;
+
+    color: #991b1b;
+
+    padding: 5px 10px;
+
+    border-radius: 20px;
+
+    font-size: 12px;
+
+    font-weight: bold;
+}
+
+
+/* ================================
+   MAIN FOOTER
+================================ */
+
+.main-footer {
+
+    text-align: center;
+
+    padding: 25px;
+
+    margin-top: 40px;
+
+    color: #94a3b8;
+
+    font-size: 13px;
+}
+
+
+/* ================================
+   RESPONSIVE HP
+================================ */
+
+@media (max-width: 768px) {
+
+
+    .landing-card {
+
+        padding: 30px 20px;
+
+        border-radius: 20px;
+    }
+
+
+    .landing-card h1 {
+
+        font-size: 28px;
+    }
+
+
+    .role-container {
+
+        grid-template-columns: 1fr;
+    }
+
+
+    .navbar {
+
+        padding: 15px 5%;
+
+        flex-direction: column;
+
+        gap: 12px;
+    }
+
+
+    .nav-menu {
+
+        width: 100%;
+
+        justify-content: center;
+
+        flex-wrap: wrap;
+    }
+
+
+    .container {
+
+        width: 92%;
+
+        margin: 25px auto;
+    }
+
+
+    .page-header {
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 20px;
+    }
+
+
+    .page-header h1 {
+
+        font-size: 26px;
+    }
+
+
+    .form-grid {
+
+        grid-template-columns: 1fr;
+    }
+
+
+    .data-list {
+
+        grid-template-columns: 1fr;
+    }
+
+
+    .card {
+
+        padding: 20px;
+    }
+
+
+    .card-title {
+
+        align-items: flex-start;
+    }
+
+}
+
+
+/* ================================
+   RESPONSIVE HP KECIL
+================================ */
+
+@media (max-width: 480px) {
+
+
+    .landing-page {
+
+        padding: 15px;
+    }
+
+
+    .landing-card {
+
+        padding: 25px 15px;
+    }
+
+
+    .landing-card h1 {
+
+        font-size: 24px;
+    }
+
+
+    .subtitle {
+
+        font-size: 14px;
+    }
+
+
+    .role-card {
+
+        padding: 22px 15px;
+    }
+
+
+    .role-icon {
+
+        font-size: 45px;
+    }
+
+
+    .nav-logo {
+
+        font-size: 17px;
+    }
+
+
+    .nav-menu a {
+
+        font-size: 12px;
+
+        padding: 8px 10px;
+    }
+
+
+    .card {
+
+        padding: 17px;
+    }
+
+
+    .card-title h2 {
+
+        font-size: 17px;
+    }
+
+
+    .primary-button,
+    .secondary-button {
+
+        width: 100%;
+    }
+
+}
