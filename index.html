@@ -3,62 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aplikasi Akademik</title>
-
+    <meta name="theme-color" content="#102b46">
+    <title>Ruang Akademik | Portal Kampus</title>
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-
-    <div class="landing-page">
-
-        <div class="landing-card">
-
-            <div class="logo">🎓</div>
-
-            <h1>Aplikasi Akademik</h1>
-
-            <p class="subtitle">
-                Sistem Pengelolaan Data Mahasiswa dan Dosen
-            </p>
-
-            <p class="instruction">
-                Silakan pilih jenis pengguna untuk melanjutkan
-            </p>
+    <main class="landing-page">
+        <section class="landing-card">
+            <div class="campus-mark" aria-hidden="true">A</div>
+            <p class="eyebrow">PORTAL AKADEMIK • TAHUN AJARAN 2026</p>
+            <h1>Ruang Akademik</h1>
+            <p class="subtitle">Satu ruang untuk bertumbuh, mengajar, dan berkarya.</p>
+            <p class="landing-copy">Selamat datang di portal akademik kampus. Silakan pilih akses sesuai peran Anda untuk mengelola informasi akademik dengan mudah.</p>
 
             <div class="role-container">
-
-                <a href="mahasiswa.html" class="role-card">
-                    <div class="role-icon">👩‍🎓</div>
+                <a href="mahasiswa.html" class="role-card student-card">
+                    <span class="role-kicker">AKSES AKADEMIK</span>
+                    <div class="role-icon" aria-hidden="true">🎓</div>
                     <h2>Mahasiswa</h2>
-                    <p>
-                        Kelola biodata, nilai dan hitung IPK
-                    </p>
-                    <span class="role-button">
-                        Masuk sebagai Mahasiswa →
-                    </span>
+                    <p>Lengkapi biodata, lihat informasi akademik, dan hitung capaian IPK Anda.</p>
+                    <span class="role-button">Masuk sebagai Mahasiswa <span aria-hidden="true">→</span></span>
                 </a>
-
-                <a href="dosen.html" class="role-card">
-                    <div class="role-icon">👨‍🏫</div>
+                <a href="dosen.html" class="role-card lecturer-card">
+                    <span class="role-kicker">AKSES PENGAJAR</span>
+                    <div class="role-icon" aria-hidden="true">📚</div>
                     <h2>Dosen</h2>
-                    <p>
-                        Kelola data dan input nilai mahasiswa
-                    </p>
-                    <span class="role-button">
-                        Masuk sebagai Dosen →
-                    </span>
+                    <p>Kelola profil pengajar, masukkan nilai, dan pantau rekap akademik.</p>
+                    <span class="role-button">Masuk sebagai Dosen <span aria-hidden="true">→</span></span>
                 </a>
-
             </div>
-
-            <footer>
-                <p>© 2026 Aplikasi Akademik</p>
-            </footer>
-
-        </div>
-
-    </div>
-
+            <footer class="landing-footer">Belajar hari ini, membangun masa depan bersama.</footer>
+        </section>
+    </main>
 </body>
 </html>

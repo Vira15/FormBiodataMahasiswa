@@ -116,6 +116,8 @@
 
             <form id="formDosen">
 
+                <p class="required-note"><span aria-hidden="true">*</span> Wajib diisi</p>
+
 
                 <div class="form-grid">
 
@@ -130,6 +132,11 @@
                             type="text"
                             id="namaDosen"
                             placeholder="Masukkan nama dosen"
+                            required
+                            minlength="3"
+                            maxlength="60"
+                            pattern="[A-Za-z]+"
+                            title="Nama Lengkap harus menggunakan huruf"
                         >
 
                     </div>
@@ -146,6 +153,10 @@
                             type="text"
                             id="nidn"
                             placeholder="Masukkan NIDN / NIP"
+                            required
+                            inputmode="numeric"
+                            pattern="[0-9]{10,18}"
+                            title="NIDN/NIP wajib diisi dengan 10–18 angka tanpa huruf."
                         >
 
                     </div>
@@ -158,7 +169,7 @@
                             Program Studi
                         </label>
 
-                        <select id="prodiDosen">
+                        <select id="prodiDosen" required>
 
                             <option value="">
                                 -- Pilih Program Studi --
@@ -192,6 +203,9 @@
                             type="text"
                             id="mataKuliah"
                             placeholder="Contoh: Pemrograman Visual"
+                            required
+                            minlength="2"
+                            maxlength="80"
                         >
 
                     </div>
@@ -289,6 +303,8 @@
 
             <form id="formNilai">
 
+                <p class="required-note"><span aria-hidden="true">*</span> Wajib diisi</p>
+
 
                 <div class="form-grid">
 
@@ -303,6 +319,10 @@
                             type="text"
                             id="namaMahasiswaNilai"
                             placeholder="Nama mahasiswa"
+                            required
+                            minlength="3"
+                            pattern="[A-Za-z]+"
+                            title="Nama Mahasiswa harus menggunakan huruf"
                         >
 
                     </div>
@@ -319,6 +339,10 @@
                             type="text"
                             id="nimNilai"
                             placeholder="NIM mahasiswa"
+                            required
+                            inputmode="numeric"
+                            pattern="[0-9]{9,15}"
+                            title="NIM wajib diisi dengan 9–15 angka tanpa huruf."
                         >
 
                     </div>
@@ -336,7 +360,9 @@
                             id="nilaiAngka"
                             min="0"
                             max="100"
+                            step="0.01"
                             placeholder="0 - 100"
+                            required
                         >
 
                     </div>
@@ -349,7 +375,7 @@
                             Nilai Huruf
                         </label>
 
-                        <select id="nilaiHuruf">
+                        <select id="nilaiHuruf" required>
 
                             <option value="">
                                 -- Pilih Nilai --
