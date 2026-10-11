@@ -1,13 +1,11 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
 
     <meta charset="UTF-8">
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Data Dosen</title>
 
@@ -38,10 +36,7 @@
                 Mahasiswa
             </a>
 
-            <a
-                href="dosen.html"
-                class="active"
-            >
+            <a href="dosen.html" class="active">
                 Dosen
             </a>
 
@@ -75,10 +70,7 @@
             </div>
 
 
-            <a
-                href="index.html"
-                class="back-button"
-            >
+            <a href="index.html" class="back-button">
                 ← Kembali
             </a>
 
@@ -128,16 +120,8 @@
                             Nama Lengkap
                         </label>
 
-                        <input
-                            type="text"
-                            id="namaDosen"
-                            placeholder="Masukkan nama dosen"
-                            required
-                            minlength="3"
-                            maxlength="60"
-                            pattern="[A-Za-z]+"
-                            title="Nama Lengkap harus menggunakan huruf"
-                        >
+                        <input type="text" id="namaDosen" placeholder="Masukkan nama dosen" required minlength="3"
+                            maxlength="60" pattern="[A-Za-z]+" title="Nama Lengkap harus menggunakan huruf">
 
                     </div>
 
@@ -149,15 +133,8 @@
                             NIDN / NIP
                         </label>
 
-                        <input
-                            type="text"
-                            id="nidn"
-                            placeholder="Masukkan NIDN / NIP"
-                            required
-                            inputmode="numeric"
-                            pattern="[0-9]{10,18}"
-                            title="NIDN/NIP wajib diisi dengan 10–18 angka tanpa huruf."
-                        >
+                        <input type="text" id="nidn" placeholder="Masukkan NIDN / NIP" required inputmode="numeric"
+                            pattern="[0-9]{10,18}" title="NIDN/NIP wajib diisi dengan 10–18 angka tanpa huruf.">
 
                     </div>
 
@@ -199,14 +176,8 @@
                             Mata Kuliah
                         </label>
 
-                        <input
-                            type="text"
-                            id="mataKuliah"
-                            placeholder="Contoh: Pemrograman Visual"
-                            required
-                            minlength="2"
-                            maxlength="80"
-                        >
+                        <input type="text" id="mataKuliah" placeholder="Contoh: Pemrograman Visual" required
+                            minlength="2" maxlength="80">
 
                     </div>
 
@@ -214,10 +185,7 @@
 
 
 
-                <button
-                    type="submit"
-                    class="primary-button"
-                >
+                <button type="submit" class="primary-button">
                     Simpan Data Dosen
                 </button>
 
@@ -257,14 +225,172 @@
 
 
 
-            <div
-                id="outputDosen"
-                class="output-box"
-            >
+            <div id="outputDosen" class="output-box">
 
                 <p class="empty-message">
                     Data dosen akan tampil di sini.
                 </p>
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- PEDOMAN PENILAIAN -->
+
+        <section class="card" id="pedomanNilaiCard">
+
+
+            <div class="card-title">
+
+                <span class="card-icon">
+                    📖
+                </span>
+
+
+                <div>
+
+                    <h2>
+                        Ketentuan & Pedoman Nilai Huruf
+                    </h2>
+
+                    <p>
+                        Standar acuan konversi nilai angka ke nilai huruf dan status kelulusan mahasiswa
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="table-wrapper">
+
+                <table class="guideline-table">
+
+                    <thead>
+
+                        <tr>
+
+                            <th>Rentang Nilai</th>
+
+                            <th>Nilai Huruf</th>
+
+                            <th>Bobot</th>
+
+                            <th>Predikat</th>
+
+                            <th>Status</th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody id="pedomanTbody">
+
+                        <tr data-grade="A">
+
+                            <td><strong>85.00 – 100.00</strong></td>
+
+                            <td><span class="grade-badge grade-a">A</span></td>
+
+                            <td>4.00</td>
+
+                            <td>Sangat Baik</td>
+
+                            <td><span class="status-lulus">Lulus</span></td>
+
+                        </tr>
+
+                        <tr data-grade="B+">
+
+                            <td><strong>80.00 – 84.99</strong></td>
+
+                            <td><span class="grade-badge grade-b-plus">B+</span></td>
+
+                            <td>3.50</td>
+
+                            <td>Baik Sekali</td>
+
+                            <td><span class="status-lulus">Lulus</span></td>
+
+                        </tr>
+
+                        <tr data-grade="B">
+
+                            <td><strong>75.00 – 79.99</strong></td>
+
+                            <td><span class="grade-badge grade-b">B</span></td>
+
+                            <td>3.00</td>
+
+                            <td>Baik</td>
+
+                            <td><span class="status-lulus">Lulus</span></td>
+
+                        </tr>
+
+                        <tr data-grade="C+">
+
+                            <td><strong>65.00 – 74.99</strong></td>
+
+                            <td><span class="grade-badge grade-c-plus">C+</span></td>
+
+                            <td>2.50</td>
+
+                            <td>Cukup Baik</td>
+
+                            <td><span class="status-lulus">Lulus</span></td>
+
+                        </tr>
+
+                        <tr data-grade="C">
+
+                            <td><strong>55.00 – 64.99</strong></td>
+
+                            <td><span class="grade-badge grade-c">C</span></td>
+
+                            <td>2.00</td>
+
+                            <td>Cukup</td>
+
+                            <td><span class="status-lulus">Lulus</span></td>
+
+                        </tr>
+
+                        <tr data-grade="D">
+
+                            <td><strong>40.00 – 54.99</strong></td>
+
+                            <td><span class="grade-badge grade-d">D</span></td>
+
+                            <td>1.00</td>
+
+                            <td>Kurang</td>
+
+                            <td><span class="status-tidak">Tidak Lulus</span></td>
+
+                        </tr>
+
+                        <tr data-grade="E">
+
+                            <td><strong>0.00 – 39.99</strong></td>
+
+                            <td><span class="grade-badge grade-e">E</span></td>
+
+                            <td>0.00</td>
+
+                            <td>Gagal</td>
+
+                            <td><span class="status-tidak">Tidak Lulus</span></td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
 
             </div>
 
@@ -292,7 +418,7 @@
                     </h2>
 
                     <p>
-                        Dosen dapat memasukkan nilai mahasiswa
+                        Dosen dapat memasukkan nilai mahasiswa (nilai huruf ditentukan otomatis)
                     </p>
 
                 </div>
@@ -315,15 +441,8 @@
                             Nama Mahasiswa
                         </label>
 
-                        <input
-                            type="text"
-                            id="namaMahasiswaNilai"
-                            placeholder="Nama mahasiswa"
-                            required
-                            minlength="3"
-                            pattern="[A-Za-z]+"
-                            title="Nama Mahasiswa harus menggunakan huruf"
-                        >
+                        <input type="text" id="namaMahasiswaNilai" placeholder="Nama mahasiswa" required minlength="3"
+                            pattern="[A-Za-z\s]+" title="Nama Mahasiswa harus menggunakan huruf">
 
                     </div>
 
@@ -335,15 +454,13 @@
                             NIM
                         </label>
 
-                        <input
-                            type="text"
-                            id="nimNilai"
-                            placeholder="NIM mahasiswa"
-                            required
-                            inputmode="numeric"
-                            pattern="[0-9]{9,15}"
-                            title="NIM wajib diisi dengan 9–15 angka tanpa huruf."
-                        >
+                        <input type="text" id="nimNilai" placeholder="Nomor Induk Mahasiswa" required
+                            inputmode="numeric" pattern="[0-9]{9,15}"
+                            title="NIM wajib diisi dengan 9–15 angka tanpa huruf.">
+
+                        <p class="field-hint" id="hintNimNilai">
+                            NIM wajib diisi 9–15 angka dan tidak boleh sama dengan data mahasiswa lain.
+                        </p>
 
                     </div>
 
@@ -355,15 +472,8 @@
                             Nilai Angka
                         </label>
 
-                        <input
-                            type="number"
-                            id="nilaiAngka"
-                            min="0"
-                            max="100"
-                            step="0.01"
-                            placeholder="0 - 100"
-                            required
-                        >
+                        <input type="number" id="nilaiAngka" min="0" max="100" step="0.01" placeholder="0 - 100"
+                            required>
 
                     </div>
 
@@ -371,58 +481,39 @@
 
                     <div class="form-group">
 
-                        <label for="nilaiHuruf">
+                        <label for="nilaiHuruf" class="no-asterisk">
                             Nilai Huruf
                         </label>
 
-                        <select id="nilaiHuruf" required>
+                        <input type="text" id="nilaiHuruf" placeholder="Otomatis dari nilai angka" readonly
+                            aria-readonly="true">
 
-                            <option value="">
-                                -- Pilih Nilai --
-                            </option>
-
-                            <option value="A">
-                                A
-                            </option>
-
-                            <option value="B+">
-                                B+
-                            </option>
-
-                            <option value="B">
-                                B
-                            </option>
-
-                            <option value="C+">
-                                C+
-                            </option>
-
-                            <option value="C">
-                                C
-                            </option>
-
-                            <option value="D">
-                                D
-                            </option>
-
-                            <option value="E">
-                                E
-                            </option>
-
-                        </select>
+                        <p class="field-hint" id="hintNilaiHuruf">
+                            Terisi otomatis sesuai pedoman ketentuan nilai.
+                        </p>
 
                     </div>
 
                 </div>
 
 
+                <!-- LIVE PREVIEW KONVERSI -->
 
-                <button
-                    type="submit"
-                    class="primary-button"
-                >
-                    Simpan Nilai
-                </button>
+                <div id="previewKonversi" class="conversion-preview" aria-live="polite">
+
+                    <span class="preview-icon">ℹ️</span>
+
+                    <span class="preview-text">
+                        Ketik <strong>Nilai Angka</strong> untuk melihat penentuan nilai huruf, predikat, dan status
+                        kelulusan secara otomatis.
+                    </span>
+
+                </div>
+
+                <div class="button-group">
+                    <button type="submit" class="primary-button">Tambah Nilai</button>
+                    <button type="reset" class="secondary-button">Reset Form</button>
+                </div>
 
 
             </form>
@@ -451,7 +542,7 @@
                     </h2>
 
                     <p>
-                        Daftar nilai mahasiswa
+                        Daftar nilai mahasiswa yang telah disimpan
                     </p>
 
                 </div>
@@ -482,11 +573,15 @@
                             </th>
 
                             <th>
-                                Nilai
+                                Nilai Angka
                             </th>
 
                             <th>
-                                Huruf
+                                Nilai Huruf
+                            </th>
+
+                            <th>
+                                Predikat
                             </th>
 
                             <th>
@@ -502,10 +597,7 @@
 
                         <tr>
 
-                            <td
-                                colspan="6"
-                                class="empty-table"
-                            >
+                            <td colspan="7" class="empty-table">
                                 Belum ada data nilai.
                             </td>
 
@@ -540,4 +632,5 @@
 
 
 </body>
+
 </html>
