@@ -4,40 +4,280 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#102b46">
-    <title>Ruang Akademik | Portal Kampus</title>
+    <meta name="theme-color" content="#2563eb">
+    <title>Dashboard Akademik | Ruang Akademik</title>
+
+    <!-- Bootstrap 5 CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <!-- Bootstrap Icons CDN -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- Custom Modern CSS -->
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <main class="landing-page">
-        <section class="landing-card">
-            <div class="campus-mark" aria-hidden="true">A</div>
-            <p class="eyebrow">PORTAL AKADEMIK • TAHUN AJARAN 2026</p>
-            <h1>Ruang Akademik</h1>
-            <p class="subtitle">Satu ruang untuk bertumbuh, mengajar, dan berkarya.</p>
-            <p class="landing-copy">Selamat datang di portal akademik kampus. Silakan pilih akses sesuai peran Anda
-                untuk mengelola informasi akademik dengan mudah.</p>
 
-            <div class="role-container">
-                <a href="mahasiswa.html" class="role-card student-card">
-                    <span class="role-kicker">AKSES AKADEMIK</span>
-                    <div class="role-icon" aria-hidden="true">🎓</div>
-                    <h2>Mahasiswa</h2>
-                    <p>Lengkapi biodata, lihat informasi akademik, dan hitung capaian IPK Anda.</p>
-                    <span class="role-button">Masuk sebagai Mahasiswa <span aria-hidden="true">→</span></span>
-                </a>
-                <a href="dosen.html" class="role-card lecturer-card">
-                    <span class="role-kicker">AKSES PENGAJAR</span>
-                    <div class="role-icon" aria-hidden="true">📚</div>
-                    <h2>Dosen</h2>
-                    <p>Kelola profil pengajar, masukkan nilai, dan pantau rekap akademik.</p>
-                    <span class="role-button">Masuk sebagai Dosen <span aria-hidden="true">→</span></span>
-                </a>
+    <!-- NAVBAR RESPONSIF -->
+    <nav class="navbar navbar-expand-lg main-navbar py-2">
+        <div class="container-fluid px-lg-4">
+            <a class="navbar-brand navbar-brand-custom" href="index.html">
+                <div class="brand-icon-box">🎓</div>
+                <div>
+                    <span>Ruang Akademik</span>
+                    <span class="d-block text-muted"
+                        style="font-size: 0.68rem; font-weight: 500; letter-spacing: 0.5px;">SISTEM PENGELOLAAN
+                        DATA</span>
+                </div>
+            </a>
+
+            <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse"
+                data-bs-target="#academicNavbar" aria-controls="academicNavbar" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="academicNavbar">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0 gap-1">
+                    <li class="nav-item">
+                        <a class="nav-link nav-link-custom active" aria-current="page" href="index.html">
+                            <i class="bi bi-grid-1x2-fill"></i> Dashboard
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link nav-link-custom" href="mahasiswa.html">
+                            <i class="bi bi-mortarboard-fill"></i> Data Mahasiswa
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link nav-link-custom" href="dosen.html">
+                            <i class="bi bi-person-video3"></i> Data Dosen
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link nav-link-custom" href="prodi.html">
+                            <i class="bi bi-building"></i> Program Studi
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link nav-link-custom" href="mahasiswa.html#kalkulator-ipk">
+                            <i class="bi bi-calculator"></i> Hitung IPK
+                        </a>
+                    </li>
+                </ul>
             </div>
-            <footer class="landing-footer">Belajar hari ini, membangun masa depan bersama.</footer>
-        </section>
+        </div>
+    </nav>
+
+    <!-- MAIN CONTENT -->
+    <main class="container-fluid px-lg-4 py-4 flex-grow-1">
+
+        <!-- WELCOME HERO BANNER -->
+        <div class="card border-0 rounded-4 overflow-hidden mb-4 shadow-sm"
+            style="background: linear-gradient(135deg, #1e3a8a, #2563eb); color: white;">
+            <div class="card-body p-4 p-lg-5 position-relative">
+                <div class="row align-items-center">
+                    <div class="col-12 col-md-8">
+                        <span class="badge bg-white text-primary px-3 py-1.5 rounded-pill mb-2 fw-bold text-uppercase"
+                            style="font-size: 0.75rem;">
+                            Tahun Akademik 2026/2027
+                        </span>
+                        <h1 class="display-6 fw-bold mb-2">Selamat Datang di Ruang Akademik</h1>
+                        <p class="lead mb-4 text-white-50" style="max-width: 650px; font-size: 1.05rem;">
+                            Pusat tata kelola data mahasiswa, rekap dosen, nilai per semester, serta evaluasi capaian
+                            indeks prestasi kumulatif (IPK).
+                        </p>
+                        <div class="d-flex flex-wrap gap-2">
+                            <a href="mahasiswa.html" class="btn btn-light text-primary fw-bold shadow-sm px-4">
+                                <i class="bi bi-person-plus-fill me-1"></i> Kelola Mahasiswa
+                            </a>
+                            <a href="dosen.html" class="btn btn-outline-light px-4">
+                                <i class="bi bi-journal-check me-1"></i> Rekap Nilai Dosen
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-4 d-none d-md-flex justify-content-center">
+                        <div style="font-size: 7rem; opacity: 0.85; filter: drop-shadow(0 10px 20px rgba(0,0,0,0.2));">
+                            🏛️
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- RINGKASAN METRIK (STAT CARDS) -->
+        <div class="row g-3 mb-4">
+            <div class="col-12 col-sm-6 col-lg-3">
+                <div class="stat-card">
+                    <div class="stat-icon primary">
+                        <i class="bi bi-mortarboard-fill"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3 id="dashTotalMahasiswa">5</h3>
+                        <p>Total Mahasiswa</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-sm-6 col-lg-3">
+                <div class="stat-card">
+                    <div class="stat-icon success">
+                        <i class="bi bi-person-video3"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3 id="dashTotalDosen">3</h3>
+                        <p>Dosen Pengajar</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-sm-6 col-lg-3">
+                <div class="stat-card">
+                    <div class="stat-icon warning">
+                        <i class="bi bi-building"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3 id="dashTotalProdi">4</h3>
+                        <p>Program Studi</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-sm-6 col-lg-3">
+                <div class="stat-card">
+                    <div class="stat-icon info">
+                        <i class="bi bi-graph-up-arrow"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3 id="dashRataIpk">3.52</h3>
+                        <p>Rata-rata IPK</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- AKSES CEPAT & AKTIVITAS TERBARU -->
+        <div class="row g-4">
+
+            <!-- TABEL PREVIEW MAHASISWA TERBARU -->
+            <div class="col-12 col-lg-8">
+                <div class="custom-card h-100">
+                    <div class="card-header-clean">
+                        <div class="d-flex align-items-center gap-2">
+                            <div class="card-header-icon" style="background: #eff6ff; color: #2563eb;">
+                                <i class="bi bi-people-fill"></i>
+                            </div>
+                            <div>
+                                <h2 class="h6 fw-bold mb-0">Mahasiswa Terdaftar Baru-baru Ini</h2>
+                                <small class="text-muted">Data terbaru dari sistem akademik</small>
+                            </div>
+                        </div>
+                        <a href="mahasiswa.html" class="btn btn-outline-primary btn-sm">
+                            Lihat Semua <i class="bi bi-arrow-right"></i>
+                        </a>
+                    </div>
+
+                    <div class="table-responsive">
+                        <table class="table custom-table table-hover align-middle mb-0">
+                            <thead>
+                                <tr>
+                                    <th>NIM</th>
+                                    <th>Nama Mahasiswa</th>
+                                    <th>Program Studi</th>
+                                    <th class="text-center">Status</th>
+                                    <th class="text-end">Aksi</th>
+                                </tr>
+                            </thead>
+                            <tbody id="dashRecentMahasiswa">
+                                <!-- Diisi dinamis oleh script.js -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- AKSES CEPAT (QUICK ACTIONS) -->
+            <div class="col-12 col-lg-4">
+                <div class="custom-card h-100">
+                    <div class="card-header-clean">
+                        <div class="d-flex align-items-center gap-2">
+                            <div class="card-header-icon" style="background: #fffbeb; color: #d97706;">
+                                <i class="bi bi-lightning-charge-fill"></i>
+                            </div>
+                            <div>
+                                <h2 class="h6 fw-bold mb-0">Akses Cepat</h2>
+                                <small class="text-muted">Pintasan menu utama</small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="p-3 d-flex flex-column gap-2.5">
+                        <a href="mahasiswa.html" class="quick-action-card">
+                            <div class="action-icon" style="background: #eff6ff; color: #2563eb;">
+                                <i class="bi bi-person-plus-fill"></i>
+                            </div>
+                            <div>
+                                <strong class="d-block text-dark">Tambah Mahasiswa</strong>
+                                <small class="text-muted">Input biodata dan semester mahasiswa</small>
+                            </div>
+                        </a>
+
+                        <a href="dosen.html" class="quick-action-card">
+                            <div class="action-icon" style="background: #ecfdf5; color: #059669;">
+                                <i class="bi bi-clipboard-data-fill"></i>
+                            </div>
+                            <div>
+                                <strong class="d-block text-dark">Input & Rekap Nilai</strong>
+                                <small class="text-muted">Konversi nilai huruf dan kelulusan</small>
+                            </div>
+                        </a>
+
+                        <a href="mahasiswa.html#kalkulator-ipk" class="quick-action-card">
+                            <div class="action-icon" style="background: #fdf2f8; color: #db2777;">
+                                <i class="bi bi-calculator-fill"></i>
+                            </div>
+                            <div>
+                                <strong class="d-block text-dark">Kalkulator IPK</strong>
+                                <small class="text-muted">Hitung IPK 4 mata kuliah secara instan</small>
+                            </div>
+                        </a>
+
+                        <a href="prodi.html" class="quick-action-card">
+                            <div class="action-icon" style="background: #f0fdfa; color: #0d9488;">
+                                <i class="bi bi-building-fill"></i>
+                            </div>
+                            <div>
+                                <strong class="d-block text-dark">Informasi Program Studi</strong>
+                                <small class="text-muted">Akreditasi dan sebaran mahasiswa</small>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
     </main>
+
+    <!-- FOOTER -->
+    <footer class="main-footer mt-auto py-3">
+        <div class="container-fluid px-lg-4 text-center">
+            <p class="mb-0 text-muted small">
+                © 2026 Ruang Akademik &bull; Tugas Praktikum Pemrograman Visual Pertemuan 5 &bull; Redesign UI/UX
+            </p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 Bundle JS CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+
+    <!-- Custom Logic Script -->
+    <script src="script.js"></script>
+
 </body>
 
 </html>

@@ -4,313 +4,505 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#2563eb">
+    <title>Data Mahasiswa | Ruang Akademik</title>
 
-    <title>Data Mahasiswa</title>
+    <!-- Bootstrap 5 CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 
+    <!-- Bootstrap Icons CDN -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- Custom Modern CSS -->
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <!-- NAVBAR -->
-    <nav class="navbar">
-
-        <div class="nav-logo">
-            🎓 Aplikasi Akademik
-        </div>
-
-        <div class="nav-menu">
-            <a href="index.html">Beranda</a>
-            <a href="mahasiswa.html" class="active">Mahasiswa</a>
-            <a href="dosen.html">Dosen</a>
-        </div>
-
-    </nav>
-
-
-    <!-- CONTAINER -->
-    <main class="container">
-
-        <div class="page-header">
-
-            <div>
-                <p class="page-label">PANEL MAHASISWA</p>
-
-                <h1>Data Mahasiswa</h1>
-
-                <p>
-                    Masukkan data mahasiswa dan lakukan perhitungan IPK.
-                </p>
-            </div>
-
-            <a href="index.html" class="back-button">
-                ← Kembali
+    <!-- NAVBAR RESPONSIF KONSISTEN -->
+    <nav class="navbar navbar-expand-lg main-navbar py-2">
+        <div class="container-fluid px-lg-4">
+            <a class="navbar-brand navbar-brand-custom" href="index.html">
+                <div class="brand-icon-box">🎓</div>
+                <div>
+                    <span>Ruang Akademik</span>
+                    <span class="d-block text-muted"
+                        style="font-size: 0.68rem; font-weight: 500; letter-spacing: 0.5px;">SISTEM PENGELOLAAN
+                        DATA</span>
+                </div>
             </a>
 
-        </div>
-
-
-        <!-- BIODATA -->
-        <section class="card">
-
-            <div class="card-title">
-                <span class="card-icon">👤</span>
-
-                <div>
-                    <h2>Biodata Mahasiswa</h2>
-                    <p>Lengkapi data diri mahasiswa</p>
-                </div>
-            </div>
-
-
-            <form id="formMahasiswa">
-
-                <p class="required-note"><span aria-hidden="true">*</span> Wajib diisi</p>
-
-                <div class="form-grid">
-
-                    <div class="form-group">
-
-                        <label for="nama">
-                            Nama Lengkap
-                        </label>
-
-                        <input type="text" id="nama" placeholder="Masukkan nama lengkap" required minlength="3"
-                            maxlength="60" pattern="[A-Za-z]+" title="Nama Lengkap harus menggunakan huruf">
-
-                    </div>
-
-
-                    <div class="form-group">
-
-                        <label for="nim">
-                            NIM
-                        </label>
-
-                        <input type="text" id="nim" placeholder="Nomor Induk Mahasiswa" required inputmode="numeric"
-                            pattern="[0-9]{9,15}" title="NIM wajib diisi dengan 9–15 angka tanpa huruf.">
-
-                    </div>
-
-
-                    <div class="form-group">
-
-                        <label for="prodi">
-                            Program Studi
-                        </label>
-
-                        <select id="prodi" required>
-
-                            <option value="">
-                                -- Pilih Program Studi --
-                            </option>
-
-                            <option value="Teknik Informatika">
-                                Teknik Informatika
-                            </option>
-
-                            <option value="Sistem Informasi">
-                                Sistem Informasi
-                            </option>
-
-                            <option value="Manajemen Informatika">
-                                Manajemen Informatika
-                            </option>
-
-                            <option value="Teknik Industri">
-                                Teknik Industri
-                            </option>
-
-                        </select>
-
-                    </div>
-
-
-                    <div class="form-group">
-
-                        <label for="semester">
-                            Semester
-                        </label>
-
-                        <select id="semester" required>
-
-                            <option value="">
-                                -- Pilih Semester --
-                            </option>
-
-                            <option value="1">Semester 1</option>
-                            <option value="2">Semester 2</option>
-                            <option value="3">Semester 3</option>
-                            <option value="4">Semester 4</option>
-                            <option value="5">Semester 5</option>
-                            <option value="6">Semester 6</option>
-                            <option value="7">Semester 7</option>
-                            <option value="8">Semester 8</option>
-
-                        </select>
-
-                    </div>
-
-                </div>
-
-
-                <div class="form-group gender-group">
-
-                    <label class="required-label">Jenis Kelamin</label>
-
-                    <div class="radio-container">
-
-                        <label class="radio-option">
-
-                            <input type="radio" name="gender" value="Laki-laki" required>
-
-                            <span>Laki-laki</span>
-
-                        </label>
-
-
-                        <label class="radio-option">
-
-                            <input type="radio" name="gender" value="Perempuan">
-
-                            <span>Perempuan</span>
-
-                        </label>
-
-                    </div>
-
-                </div>
-
-
-                <button type="submit" class="primary-button">
-                    Tampilkan Data
-                </button>
-
-            </form>
-
-        </section>
-
-
-        <!-- OUTPUT BIODATA -->
-        <section class="card result-card" id="hasilMahasiswa">
-
-            <div class="card-title">
-
-                <span class="card-icon">📋</span>
-
-                <div>
-                    <h2>Hasil Data Mahasiswa</h2>
-                    <p>Data yang telah dimasukkan</p>
-                </div>
-
-            </div>
-
-
-            <div id="biodataOutput" class="output-box">
-
-                <p class="empty-message">
-                    Data mahasiswa akan tampil di sini.
-                </p>
-
-            </div>
-
-        </section>
-
-
-        <!-- HITUNG IPK -->
-        <section class="card">
-
-            <div class="card-title">
-
-                <span class="card-icon">📊</span>
-
-                <div>
-
-                    <h2>Perhitungan IPK</h2>
-
-                    <p>
-                        Masukkan jumlah nilai mata kuliah
-                    </p>
-
-                </div>
-
-            </div>
-
-
-            <p class="required-note"><span aria-hidden="true">*</span> Wajib diisi</p>
-
-
-            <div class="form-grid">
-
-                <div class="form-group">
-
-                    <label for="nilai1">
-                        Nilai Mata Kuliah 1
-                    </label>
-
-                    <input type="number" id="nilai1" min="0" max="4" step="0.01" placeholder="0 - 4" required>
-
-                </div>
-
-
-                <div class="form-group">
-
-                    <label for="nilai2">
-                        Nilai Mata Kuliah 2
-                    </label>
-
-                    <input type="number" id="nilai2" min="0" max="4" step="0.01" placeholder="0 - 4" required>
-
-                </div>
-
-
-                <div class="form-group">
-
-                    <label for="nilai3">
-                        Nilai Mata Kuliah 3
-                    </label>
-
-                    <input type="number" id="nilai3" min="0" max="4" step="0.01" placeholder="0 - 4" required>
-
-                </div>
-
-
-                <div class="form-group">
-
-                    <label for="nilai4">
-                        Nilai Mata Kuliah 4
-                    </label>
-
-                    <input type="number" id="nilai4" min="0" max="4" step="0.01" placeholder="0 - 4" required>
-
-                </div>
-
-            </div>
-
-
-            <button type="button" class="secondary-button" id="hitungIPK">
-                Hitung IPK
+            <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse"
+                data-bs-target="#academicNavbar" aria-controls="academicNavbar" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
             </button>
 
+            <div class="collapse navbar-collapse" id="academicNavbar">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0 gap-1">
+                    <li class="nav-item">
+                        <a class="nav-link nav-link-custom" href="index.html">
+                            <i class="bi bi-grid-1x2-fill"></i> Dashboard
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link nav-link-custom active" aria-current="page" href="mahasiswa.html">
+                            <i class="bi bi-mortarboard-fill"></i> Data Mahasiswa
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link nav-link-custom" href="dosen.html">
+                            <i class="bi bi-person-video3"></i> Data Dosen
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link nav-link-custom" href="prodi.html">
+                            <i class="bi bi-building"></i> Program Studi
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link nav-link-custom" href="#kalkulator-ipk">
+                            <i class="bi bi-calculator"></i> Hitung IPK
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
-            <div id="hasilIPK" class="ipk-result">
-                IPK akan muncul di sini
+    <!-- MAIN CONTAINER -->
+    <main class="container-fluid px-lg-4 py-4 flex-grow-1">
+
+        <!-- PAGE HEADER & BREADCRUMB -->
+        <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-3 mb-4">
+            <div>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb mb-1 small text-muted">
+                        <li class="breadcrumb-item"><a href="index.html" class="text-decoration-none">Dashboard</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Data Mahasiswa</li>
+                    </ol>
+                </nav>
+                <h1 class="h3 fw-bold text-dark mb-1 page-header-title">Manajemen Data Mahasiswa</h1>
+            </div>
+            <div class="d-flex align-items-center gap-2">
+                <a href="#kalkulator-ipk" class="btn btn-outline-primary btn-sm">
+                    <i class="bi bi-calculator"></i> Kalkulator IPK
+                </a>
+                <a href="dosen.html" class="btn btn-outline-secondary btn-sm">
+                    <i class="bi bi-person-video3"></i> Panel Dosen
+                </a>
+            </div>
+        </div>
+
+        <!-- DYNAMIC NOTIFICATION / ALERT FEEDBACK (MEMENUHI HALAMAN 8 PDF) -->
+        <div id="alertMahasiswaContainer"></div>
+
+        <!-- BOOTSTRAP 5 GRID: 12 KOLOM RESPONSIF (SESUAI HALAMAN 6 & 9 PDF) -->
+        <!-- Desktop: col-lg-4 (Form) & col-lg-8 (Tabel). Mobile: col-12 bertumpuk rapi -->
+        <div class="row g-4">
+
+            <!-- KOLOM KIRI: FORM MAHASISWA (SESUAI HALAMAN 7 PDF) -->
+            <div class="col-12 col-lg-4" id="cardFormMahasiswa">
+                <div class="custom-card h-100">
+                    <div class="card-header-clean">
+                        <div class="d-flex align-items-center gap-2">
+                            <div class="card-header-icon">
+                                <i class="bi bi-person-vcard"></i>
+                            </div>
+                            <div>
+                                <h2 class="h6 fw-bold mb-0" id="formMahasiswaTitle">
+                                    <i class="bi bi-person-plus text-primary me-1"></i>Tambah Mahasiswa
+                                </h2>
+                                <small class="text-muted">Isi biodata lengkap mahasiswa</small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="p-3 p-md-4">
+                        <form id="formMahasiswa" novalidate>
+                            <p class="small text-muted mb-3">
+                                Kolom dengan tanda <span class="text-danger fw-bold">*</span> wajib diisi dengan benar.
+                            </p>
+
+                            <!-- NIM -->
+                            <div class="mb-3">
+                                <label for="nim" class="form-label">
+                                    NIM (Nomor Induk Mahasiswa) <span class="text-danger">*</span>
+                                </label>
+                                <div class="input-group">
+                                    <span class="input-group-text bg-light text-muted"><i class="bi bi-hash"></i></span>
+                                    <input type="text" class="form-control font-monospace" id="nim"
+                                        placeholder="Contoh: 23010101" inputmode="numeric" required minlength="8"
+                                        maxlength="15" autocomplete="off">
+                                </div>
+                                <div class="invalid-feedback d-block small" id="feedbackNim"></div>
+                                <small class="form-text text-muted" id="hintNimMahasiswa">
+                                    Wajib diisi 8–15 angka tanpa spasi atau huruf.
+                                </small>
+                            </div>
+
+                            <!-- NAMA LENGKAP -->
+                            <div class="mb-3">
+                                <label for="nama" class="form-label">
+                                    Nama Lengkap <span class="text-danger">*</span>
+                                </label>
+                                <div class="input-group">
+                                    <span class="input-group-text bg-light text-muted"><i
+                                            class="bi bi-person"></i></span>
+                                    <input type="text" class="form-control" id="nama"
+                                        placeholder="Masukkan nama sesuai identitas" required minlength="3"
+                                        maxlength="60" autocomplete="name">
+                                </div>
+                                <small class="form-text text-muted">Gunakan huruf alfabet, minimal 3 karakter.</small>
+                            </div>
+
+                            <!-- PROGRAM STUDI -->
+                            <div class="mb-3">
+                                <label for="prodi" class="form-label">
+                                    Program Studi <span class="text-danger">*</span>
+                                </label>
+                                <select class="form-select" id="prodi" required>
+                                    <option value="" selected disabled>Pilih program studi ▾</option>
+                                    <option value="Teknik Informatika">Teknik Informatika (S1)</option>
+                                    <option value="Sistem Informasi">Sistem Informasi (S1)</option>
+                                    <option value="Manajemen Informatika">Manajemen Informatika (D3)</option>
+                                    <option value="Teknik Industri">Teknik Industri (S1)</option>
+                                </select>
+                            </div>
+
+                            <!-- SEMESTER -->
+                            <div class="mb-3">
+                                <label for="semester" class="form-label">
+                                    Semester <span class="text-danger">*</span>
+                                </label>
+                                <select class="form-select" id="semester" required>
+                                    <option value="" selected disabled>Pilih semester ▾</option>
+                                    <option value="1">Semester 1</option>
+                                    <option value="2">Semester 2</option>
+                                    <option value="3">Semester 3</option>
+                                    <option value="4">Semester 4</option>
+                                    <option value="5">Semester 5</option>
+                                    <option value="6">Semester 6</option>
+                                    <option value="7">Semester 7</option>
+                                    <option value="8">Semester 8</option>
+                                </select>
+                            </div>
+
+                            <!-- JENIS KELAMIN -->
+                            <div class="mb-3">
+                                <label class="form-label d-block">
+                                    Jenis Kelamin <span class="text-danger">*</span>
+                                </label>
+                                <div class="radio-pill-group">
+                                    <label>
+                                        <input type="radio" class="radio-pill-input" name="gender" value="Laki-laki"
+                                            required>
+                                        <div class="radio-pill-btn">
+                                            <i class="bi bi-gender-male"></i> Laki-laki
+                                        </div>
+                                    </label>
+                                    <label>
+                                        <input type="radio" class="radio-pill-input" name="gender" value="Perempuan">
+                                        <div class="radio-pill-btn">
+                                            <i class="bi bi-gender-female"></i> Perempuan
+                                        </div>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <!-- STATUS MAHASISWA (BADGE STATUS SESUAI PDF HAL. 5 & 8) -->
+                            <div class="mb-4">
+                                <label for="statusMahasiswa" class="form-label">
+                                    Status Akademik <span class="text-danger">*</span>
+                                </label>
+                                <select class="form-select" id="statusMahasiswa" required>
+                                    <option value="Aktif" selected>Aktif (Kuliah Berjalan)</option>
+                                    <option value="Cuti">Cuti Akademik</option>
+                                    <option value="Tidak Aktif">Tidak Aktif / Non-Aktif</option>
+                                </select>
+                                <small class="form-text text-muted">Status akan ditampilkan dalam bentuk badge warna di
+                                    tabel.</small>
+                            </div>
+
+                            <!-- TOMBOL AKSI UTAMA & BATAL (CHECKLIST FORM HAL. 7) -->
+                            <div class="d-grid gap-2">
+                                <button type="submit" class="btn btn-primary" id="btnSubmitMahasiswa">
+                                    <i class="bi bi-save"></i> Simpan Data
+                                </button>
+                                <div class="d-flex gap-2">
+                                    <button type="reset" class="btn btn-outline-secondary w-100" id="btnResetForm">
+                                        <i class="bi bi-arrow-counterclockwise"></i> Reset
+                                    </button>
+                                    <button type="button" class="btn btn-outline-danger w-100 d-none"
+                                        id="btnCancelEdit">
+                                        <i class="bi bi-x-circle"></i> Batal Ubah
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
             </div>
 
+            <!-- KOLOM KANAN: TABEL DAFTAR MAHASISWA (SESUAI HALAMAN 5 & 8 PDF) -->
+            <div class="col-12 col-lg-8">
+                <div class="custom-card">
+                    <!-- HEADER TABEL & TOOLBAR -->
+                    <div class="card-header-clean">
+                        <div class="d-flex align-items-center gap-2">
+                            <div class="card-header-icon" style="background: #ecfdf5; color: #059669;">
+                                <i class="bi bi-table"></i>
+                            </div>
+                            <div>
+                                <h2 class="h6 fw-bold mb-0">Daftar Data Mahasiswa</h2>
+                                <span
+                                    class="badge bg-primary-subtle text-primary border border-primary-subtle rounded-pill mt-1"
+                                    id="totalMahasiswaBadge">
+                                    Memuat data...
+                                </span>
+                            </div>
+                        </div>
+
+                        <!-- SEARCH & QUICK FILTER -->
+                        <div class="d-flex flex-wrap gap-2 align-items-center">
+                            <div class="input-group input-group-sm" style="max-width: 220px;">
+                                <span class="input-group-text bg-light text-muted"><i class="bi bi-search"></i></span>
+                                <input type="text" class="form-control" id="searchMahasiswa"
+                                    placeholder="Cari nama atau NIM...">
+                            </div>
+
+                            <select class="form-select form-select-sm" id="filterStatusMahasiswa" style="width: auto;">
+                                <option value="">Semua Status</option>
+                                <option value="Aktif">Aktif</option>
+                                <option value="Cuti">Cuti</option>
+                                <option value="Tidak Aktif">Tidak Aktif</option>
+                            </select>
+
+                            <select class="form-select form-select-sm" id="filterProdiMahasiswa" style="width: auto;">
+                                <option value="">Semua Prodi</option>
+                                <option value="Teknik Informatika">Informatika</option>
+                                <option value="Sistem Informasi">Sistem Informasi</option>
+                                <option value="Manajemen Informatika">Manajemen Info</option>
+                                <option value="Teknik Industri">Teknik Industri</option>
+                            </select>
+
+                            <button type="button" class="btn btn-outline-secondary btn-sm" id="btnResetFilter"
+                                title="Reset Filter">
+                                <i class="bi bi-arrow-repeat"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- TABEL RESPONSIF -->
+                    <div class="table-responsive">
+                        <table class="table custom-table table-hover align-middle mb-0" id="tabelMahasiswa">
+                            <thead>
+                                <tr>
+                                    <th class="text-center" style="width: 50px;">No</th>
+                                    <th>NIM</th>
+                                    <th>Nama Lengkap</th>
+                                    <th>Program Studi</th>
+                                    <th class="text-center">Semester</th>
+                                    <th>Status</th>
+                                    <th class="text-center" style="width: 150px;">Aksi</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tabelMahasiswaBody">
+                                <!-- Data di-render dinamis oleh script.js -->
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- EMPTY STATE -->
+                    <div id="tabelEmptyState" class="text-center py-5 d-none">
+                        <i class="bi bi-folder-x display-4 text-muted opacity-50 d-block mb-2"></i>
+                        <h6 class="fw-bold text-dark">Data Tidak Ditemukan</h6>
+                        <p class="text-muted small mb-0">Coba ubah kata kunci pencarian atau bersihkan filter di atas.
+                        </p>
+                    </div>
+
+                    <!-- FOOTER TABEL -->
+                    <div
+                        class="p-3 bg-light border-top d-flex flex-wrap justify-content-between align-items-center gap-2 small text-muted">
+                        <div>
+                            <i class="bi bi-info-circle me-1"></i> Data disimpan secara persisten di peramban
+                            (LocalStorage).
+                        </div>
+                        <div class="d-flex align-items-center gap-2">
+                            <span>Status:</span>
+                            <span class="badge bg-success rounded-pill px-2">Aktif</span>
+                            <span class="badge bg-warning text-dark rounded-pill px-2">Cuti</span>
+                            <span class="badge bg-danger rounded-pill px-2">Tidak Aktif</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- SECTION: PERHITUNGAN NILAI DAN IPK (REKAP IPK TERINTEGRASI) -->
+        <section class="mt-5" id="kalkulator-ipk">
+            <div class="custom-card">
+                <div class="card-header-clean">
+                    <div class="d-flex align-items-center gap-2">
+                        <div class="card-header-icon" style="background: #eff6ff; color: #2563eb;">
+                            <i class="bi bi-calculator"></i>
+                        </div>
+                        <div>
+                            <h2 class="h5 fw-bold mb-0">Perhitungan Indeks Prestasi Kumulatif (IPK)</h2>
+                            <p class="text-muted small mb-0">Masukkan nilai 4 mata kuliah untuk menghitung perolehan IPK
+                                dan predikat akademik.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="p-3 p-md-4">
+                    <div id="alertIpkContainer"></div>
+
+                    <div class="row g-4 align-items-center">
+                        <div class="col-12 col-lg-7">
+                            <p class="small text-muted mb-3">
+                                Masukkan bobot nilai tiap mata kuliah dalam rentang skala <strong class="text-dark">0.00
+                                    sampai 4.00</strong> (misal 3.75, 4.00, 3.50).
+                            </p>
+
+                            <div class="row g-3">
+                                <div class="col-12 col-sm-6">
+                                    <label for="nilai1" class="form-label">Nilai Mata Kuliah 1 <span
+                                            class="text-danger">*</span></label>
+                                    <div class="input-group">
+                                        <span class="input-group-text bg-light text-muted font-monospace">MK 1</span>
+                                        <input type="number" class="form-control" id="nilai1" min="0" max="4"
+                                            step="0.01" placeholder="0.00 – 4.00" required>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <label for="nilai2" class="form-label">Nilai Mata Kuliah 2 <span
+                                            class="text-danger">*</span></label>
+                                    <div class="input-group">
+                                        <span class="input-group-text bg-light text-muted font-monospace">MK 2</span>
+                                        <input type="number" class="form-control" id="nilai2" min="0" max="4"
+                                            step="0.01" placeholder="0.00 – 4.00" required>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <label for="nilai3" class="form-label">Nilai Mata Kuliah 3 <span
+                                            class="text-danger">*</span></label>
+                                    <div class="input-group">
+                                        <span class="input-group-text bg-light text-muted font-monospace">MK 3</span>
+                                        <input type="number" class="form-control" id="nilai3" min="0" max="4"
+                                            step="0.01" placeholder="0.00 – 4.00" required>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <label for="nilai4" class="form-label">Nilai Mata Kuliah 4 <span
+                                            class="text-danger">*</span></label>
+                                    <div class="input-group">
+                                        <span class="input-group-text bg-light text-muted font-monospace">MK 4</span>
+                                        <input type="number" class="form-control" id="nilai4" min="0" max="4"
+                                            step="0.01" placeholder="0.00 – 4.00" required>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="d-flex gap-2 mt-4">
+                                <button type="button" class="btn btn-primary" id="hitungIPK">
+                                    <i class="bi bi-play-circle me-1"></i> Hitung IPK
+                                </button>
+                                <button type="button" class="btn btn-outline-secondary" id="resetIPK">
+                                    <i class="bi bi-arrow-counterclockwise me-1"></i> Reset Form
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- OUTPUT HASIL IPK -->
+                        <div class="col-12 col-lg-5">
+                            <div class="card border rounded-3 p-3 bg-light" id="hasilIPK">
+                                <div class="text-center text-muted py-4">
+                                    <i class="bi bi-calculator display-5 d-block mb-2 text-secondary opacity-50"></i>
+                                    <p class="mb-0 small">Masukkan nilai 4 mata kuliah lalu klik <strong>Hitung
+                                            IPK</strong> untuk melihat capaian predikat.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
 
     </main>
 
+    <!-- MODAL DETAIL DATA MAHASISWA -->
+    <div class="modal fade" id="modalDetailMahasiswa" tabindex="-1" aria-labelledby="modalDetailMahasiswaLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content border-0 shadow-lg rounded-4 overflow-hidden">
+                <div class="modal-header bg-primary text-white py-3">
+                    <h5 class="modal-title fw-bold" id="modalDetailMahasiswaLabel">
+                        <i class="bi bi-person-badge me-2"></i>Kartu Biodata Mahasiswa
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                        aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-4">
+                    <div class="text-center mb-4">
+                        <div class="avatar-circle mx-auto mb-2" id="detailAvatar"
+                            style="width: 70px; height: 70px; font-size: 1.8rem;">
+                            M
+                        </div>
+                        <h4 class="fw-bold mb-1" id="detailNama">-</h4>
+                        <div id="detailStatus" class="badge bg-success px-3 py-2 rounded-pill fs-6">Aktif</div>
+                    </div>
 
-    <footer class="main-footer">
+                    <div class="list-group list-group-flush rounded-3 border">
+                        <div class="list-group-item d-flex justify-content-between align-items-center py-2.5">
+                            <span class="text-muted small">NIM (Nomor Induk Mahasiswa)</span>
+                            <span class="fw-bold font-monospace text-primary" id="detailNim">-</span>
+                        </div>
+                        <div class="list-group-item d-flex justify-content-between align-items-center py-2.5">
+                            <span class="text-muted small">Program Studi</span>
+                            <span class="fw-semibold" id="detailProdi">-</span>
+                        </div>
+                        <div class="list-group-item d-flex justify-content-between align-items-center py-2.5">
+                            <span class="text-muted small">Tingkat Semester</span>
+                            <span class="fw-semibold" id="detailSemester">-</span>
+                        </div>
+                        <div class="list-group-item d-flex justify-content-between align-items-center py-2.5">
+                            <span class="text-muted small">Jenis Kelamin</span>
+                            <span class="fw-semibold" id="detailGender">-</span>
+                        </div>
+                        <div class="list-group-item d-flex justify-content-between align-items-center py-2.5">
+                            <span class="text-muted small">Tahun Akademik</span>
+                            <span class="fw-semibold">2026/2027 Gasal</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer bg-light py-2 px-4">
+                    <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Tutup</button>
+                    <button type="button" class="btn btn-primary btn-sm" onclick="window.print()">
+                        <i class="bi bi-printer me-1"></i> Cetak Biodata
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
 
-        <p>
-            Aplikasi Akademik © 2026
-        </p>
-
+    <!-- FOOTER -->
+    <footer class="main-footer mt-auto py-3">
+        <div class="container-fluid px-lg-4 text-center">
+            <p class="mb-0 text-muted small">
+                © 2026 Ruang Akademik &bull; Tugas Praktikum Pemrograman Visual Pertemuan 5 &bull; Redesign UI/UX
+            </p>
+        </div>
     </footer>
 
+    <!-- Bootstrap 5 Bundle JS CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
 
+    <!-- Custom Logic Script -->
     <script src="script.js"></script>
 
 </body>

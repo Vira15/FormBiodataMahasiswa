@@ -2,634 +2,414 @@
 <html lang="id">
 
 <head>
-
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#2563eb">
+    <title>Data Dosen & Penilaian | Ruang Akademik</title>
 
-    <title>Data Dosen</title>
+    <!-- Bootstrap 5 CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 
+    <!-- Bootstrap Icons CDN -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- Custom Modern CSS -->
     <link rel="stylesheet" href="style.css">
-
 </head>
-
 
 <body>
 
+    <!-- NAVBAR RESPONSIF -->
+    <nav class="navbar navbar-expand-lg main-navbar py-2">
+        <div class="container-fluid px-lg-4">
+            <a class="navbar-brand navbar-brand-custom" href="index.html">
+                <div class="brand-icon-box">🎓</div>
+                <div>
+                    <span>Ruang Akademik</span>
+                    <span class="d-block text-muted" style="font-size: 0.68rem; font-weight: 500; letter-spacing: 0.5px;">SISTEM PENGELOLAAN DATA</span>
+                </div>
+            </a>
 
-    <!-- NAVBAR -->
+            <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse"
+                data-bs-target="#academicNavbar" aria-controls="academicNavbar" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-    <nav class="navbar">
-
-        <div class="nav-logo">
-            🎓 Aplikasi Akademik
+            <div class="collapse navbar-collapse" id="academicNavbar">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0 gap-1">
+                    <li class="nav-item">
+                        <a class="nav-link nav-link-custom" href="index.html">
+                            <i class="bi bi-grid-1x2-fill"></i> Dashboard
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link nav-link-custom" href="mahasiswa.html">
+                            <i class="bi bi-mortarboard-fill"></i> Data Mahasiswa
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link nav-link-custom active" aria-current="page" href="dosen.html">
+                            <i class="bi bi-person-video3"></i> Data Dosen
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link nav-link-custom" href="prodi.html">
+                            <i class="bi bi-building"></i> Program Studi
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link nav-link-custom" href="mahasiswa.html#kalkulator-ipk">
+                            <i class="bi bi-calculator"></i> Hitung IPK
+                        </a>
+                    </li>
+                </ul>
+            </div>
         </div>
-
-
-        <div class="nav-menu">
-
-            <a href="index.html">
-                Beranda
-            </a>
-
-            <a href="mahasiswa.html">
-                Mahasiswa
-            </a>
-
-            <a href="dosen.html" class="active">
-                Dosen
-            </a>
-
-        </div>
-
     </nav>
 
+    <!-- MAIN CONTENT -->
+    <main class="container-fluid px-lg-4 py-4 flex-grow-1">
 
-
-    <!-- MAIN -->
-
-    <main class="container">
-
-
-        <div class="page-header">
-
+        <!-- PAGE HEADER -->
+        <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-3 mb-4">
             <div>
-
-                <p class="page-label">
-                    PANEL DOSEN
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb mb-1 small text-muted">
+                        <li class="breadcrumb-item"><a href="index.html" class="text-decoration-none">Dashboard</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Data Dosen</li>
+                    </ol>
+                </nav>
+                <h1 class="h3 fw-bold text-dark mb-1 page-header-title">Panel Dosen & Pengelolaan Nilai</h1>
+                <p class="text-secondary small mb-0">
+                    Kelola profil dosen pengajar, input nilai evaluasi mahasiswa, dan pantau rekapitulasi kelulusan.
                 </p>
+            </div>
+            <div class="d-flex align-items-center gap-2">
+                <a href="#section-input-nilai" class="btn btn-primary btn-sm">
+                    <i class="bi bi-pencil-square"></i> Input Nilai Mahasiswa
+                </a>
+            </div>
+        </div>
 
-                <h1>
-                    Data Dosen
-                </h1>
+        <!-- ALERT DOSEN CONTAINER -->
+        <div id="alertDosenContainer"></div>
 
-                <p>
-                    Kelola informasi dosen dan input nilai mahasiswa.
-                </p>
+        <!-- ROW 1: FORM DOSEN & TABEL REKAP DOSEN -->
+        <div class="row g-4 mb-5">
 
+            <!-- FORM DOSEN -->
+            <div class="col-12 col-lg-4">
+                <div class="custom-card h-100">
+                    <div class="card-header-clean">
+                        <div class="d-flex align-items-center gap-2">
+                            <div class="card-header-icon" style="background: #ecfdf5; color: #059669;">
+                                <i class="bi bi-person-plus"></i>
+                            </div>
+                            <div>
+                                <h2 class="h6 fw-bold mb-0">Tambah Data Dosen</h2>
+                                <small class="text-muted">Masukkan profil pengajar</small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="p-3 p-md-4">
+                        <form id="formDosen" novalidate>
+                            <p class="small text-muted mb-3">Kolom dengan tanda <span class="text-danger fw-bold">*</span> wajib diisi.</p>
+
+                            <!-- NIDN / NIP -->
+                            <div class="mb-3">
+                                <label for="nidn" class="form-label">NIDN / NIP <span class="text-danger">*</span></label>
+                                <input type="text" class="form-control font-monospace" id="nidn" placeholder="Contoh: 0412038501" required inputmode="numeric" minlength="10" maxlength="18">
+                                <small class="form-text text-muted">Wajib 10–18 angka tanpa huruf.</small>
+                            </div>
+
+                            <!-- NAMA DOSEN -->
+                            <div class="mb-3">
+                                <label for="namaDosen" class="form-label">Nama Lengkap & Gelar <span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" id="namaDosen" placeholder="Contoh: Dr. Hendra Gunawan, M.Kom." required minlength="3">
+                            </div>
+
+                            <!-- PRODI -->
+                            <div class="mb-3">
+                                <label for="prodiDosen" class="form-label">Program Studi <span class="text-danger">*</span></label>
+                                <select class="form-select" id="prodiDosen" required>
+                                    <option value="" selected disabled>Pilih program studi ▾</option>
+                                    <option value="Teknik Informatika">Teknik Informatika</option>
+                                    <option value="Sistem Informasi">Sistem Informasi</option>
+                                    <option value="Manajemen Informatika">Manajemen Informatika</option>
+                                    <option value="Teknik Industri">Teknik Industri</option>
+                                </select>
+                            </div>
+
+                            <!-- MATA KULIAH -->
+                            <div class="mb-3">
+                                <label for="mataKuliah" class="form-label">Mata Kuliah Utama <span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" id="mataKuliah" placeholder="Contoh: Pemrograman Visual" required minlength="2">
+                            </div>
+
+                            <!-- EMAIL DOSEN -->
+                            <div class="mb-3">
+                                <label for="emailDosen" class="form-label">Email Institusi</label>
+                                <input type="email" class="form-control" id="emailDosen" placeholder="nama.dosen@kampus.ac.id">
+                            </div>
+
+                            <!-- STATUS DOSEN -->
+                            <div class="mb-4">
+                                <label for="statusDosen" class="form-label">Status Kepegawaian</label>
+                                <select class="form-select" id="statusDosen">
+                                    <option value="Tetap" selected>Dosen Tetap</option>
+                                    <option value="Luar Biasa">Dosen Luar Biasa (LB)</option>
+                                </select>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary w-100">
+                                <i class="bi bi-save me-1"></i> Simpan Data Dosen
+                            </button>
+                        </form>
+                    </div>
+                </div>
             </div>
 
+            <!-- TABEL DAFTAR DOSEN -->
+            <div class="col-12 col-lg-8">
+                <div class="custom-card h-100">
+                    <div class="card-header-clean">
+                        <div class="d-flex align-items-center gap-2">
+                            <div class="card-header-icon" style="background: #eff6ff; color: #2563eb;">
+                                <i class="bi bi-person-lines-fill"></i>
+                            </div>
+                            <div>
+                                <h2 class="h6 fw-bold mb-0">Daftar Dosen Pengajar</h2>
+                                <span class="badge bg-primary-subtle text-primary border rounded-pill mt-1" id="totalDosenBadge">
+                                    Memuat dosen...
+                                </span>
+                            </div>
+                        </div>
+                    </div>
 
-            <a href="index.html" class="back-button">
-                ← Kembali
-            </a>
+                    <div class="table-responsive">
+                        <table class="table custom-table table-hover align-middle mb-0">
+                            <thead>
+                                <tr>
+                                    <th class="text-center" style="width: 50px;">No</th>
+                                    <th>NIDN/NIP</th>
+                                    <th>Nama Lengkap</th>
+                                    <th>Program Studi</th>
+                                    <th>Mata Kuliah</th>
+                                    <th>Status</th>
+                                    <th class="text-center">Aksi</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tabelDosenBody">
+                                <!-- Diisi dinamis oleh script.js -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
 
         </div>
 
+        <!-- ROW 2: PEDOMAN NILAI & INPUT NILAI MAHASISWA -->
+        <div class="row g-4" id="section-input-nilai">
 
-
-        <!-- DATA DOSEN -->
-
-        <section class="card">
-
-
-            <div class="card-title">
-
-                <span class="card-icon">
-                    👨‍🏫
-                </span>
-
-
-                <div>
-
-                    <h2>
-                        Biodata Dosen
-                    </h2>
-
-                    <p>
-                        Masukkan data dosen
-                    </p>
-
-                </div>
-
-            </div>
-
-
-
-            <form id="formDosen">
-
-                <p class="required-note"><span aria-hidden="true">*</span> Wajib diisi</p>
-
-
-                <div class="form-grid">
-
-
-                    <div class="form-group">
-
-                        <label for="namaDosen">
-                            Nama Lengkap
-                        </label>
-
-                        <input type="text" id="namaDosen" placeholder="Masukkan nama dosen" required minlength="3"
-                            maxlength="60" pattern="[A-Za-z]+" title="Nama Lengkap harus menggunakan huruf">
-
+            <!-- PEDOMAN PENILAIAN HURUF -->
+            <div class="col-12 col-lg-5">
+                <div class="custom-card h-100">
+                    <div class="card-header-clean">
+                        <div class="d-flex align-items-center gap-2">
+                            <div class="card-header-icon" style="background: #fffbeb; color: #d97706;">
+                                <i class="bi bi-journal-bookmark-fill"></i>
+                            </div>
+                            <div>
+                                <h2 class="h6 fw-bold mb-0">Pedoman Konversi Nilai Huruf</h2>
+                                <small class="text-muted">Standar acuan konversi nilai angka ke huruf</small>
+                            </div>
+                        </div>
                     </div>
 
-
-
-                    <div class="form-group">
-
-                        <label for="nidn">
-                            NIDN / NIP
-                        </label>
-
-                        <input type="text" id="nidn" placeholder="Masukkan NIDN / NIP" required inputmode="numeric"
-                            pattern="[0-9]{10,18}" title="NIDN/NIP wajib diisi dengan 10–18 angka tanpa huruf.">
-
+                    <div class="table-responsive">
+                        <table class="table custom-table table-hover mb-0">
+                            <thead>
+                                <tr>
+                                    <th>Rentang Nilai</th>
+                                    <th class="text-center">Huruf</th>
+                                    <th class="text-center">Bobot</th>
+                                    <th>Predikat</th>
+                                    <th class="text-center">Status</th>
+                                </tr>
+                            </thead>
+                            <tbody id="pedomanTbody">
+                                <tr data-grade="A">
+                                    <td><strong>85.00 – 100.00</strong></td>
+                                    <td class="text-center"><span class="badge bg-success fw-bold">A</span></td>
+                                    <td class="text-center">4.00</td>
+                                    <td>Sangat Baik</td>
+                                    <td class="text-center"><span class="badge bg-success-subtle text-success-emphasis rounded-pill">Lulus</span></td>
+                                </tr>
+                                <tr data-grade="B+">
+                                    <td><strong>80.00 – 84.99</strong></td>
+                                    <td class="text-center"><span class="badge bg-primary fw-bold">B+</span></td>
+                                    <td class="text-center">3.50</td>
+                                    <td>Baik Sekali</td>
+                                    <td class="text-center"><span class="badge bg-success-subtle text-success-emphasis rounded-pill">Lulus</span></td>
+                                </tr>
+                                <tr data-grade="B">
+                                    <td><strong>75.00 – 79.99</strong></td>
+                                    <td class="text-center"><span class="badge bg-primary fw-bold">B</span></td>
+                                    <td class="text-center">3.00</td>
+                                    <td>Baik</td>
+                                    <td class="text-center"><span class="badge bg-success-subtle text-success-emphasis rounded-pill">Lulus</span></td>
+                                </tr>
+                                <tr data-grade="C+">
+                                    <td><strong>65.00 – 74.99</strong></td>
+                                    <td class="text-center"><span class="badge bg-warning text-dark fw-bold">C+</span></td>
+                                    <td class="text-center">2.50</td>
+                                    <td>Cukup Baik</td>
+                                    <td class="text-center"><span class="badge bg-success-subtle text-success-emphasis rounded-pill">Lulus</span></td>
+                                </tr>
+                                <tr data-grade="C">
+                                    <td><strong>55.00 – 64.99</strong></td>
+                                    <td class="text-center"><span class="badge bg-warning text-dark fw-bold">C</span></td>
+                                    <td class="text-center">2.00</td>
+                                    <td>Cukup</td>
+                                    <td class="text-center"><span class="badge bg-success-subtle text-success-emphasis rounded-pill">Lulus</span></td>
+                                </tr>
+                                <tr data-grade="D">
+                                    <td><strong>40.00 – 54.99</strong></td>
+                                    <td class="text-center"><span class="badge bg-danger fw-bold">D</span></td>
+                                    <td class="text-center">1.00</td>
+                                    <td>Kurang</td>
+                                    <td class="text-center"><span class="badge bg-danger-subtle text-danger-emphasis rounded-pill">Tidak Lulus</span></td>
+                                </tr>
+                                <tr data-grade="E">
+                                    <td><strong>0.00 – 39.99</strong></td>
+                                    <td class="text-center"><span class="badge bg-danger fw-bold">E</span></td>
+                                    <td class="text-center">0.00</td>
+                                    <td>Gagal</td>
+                                    <td class="text-center"><span class="badge bg-danger-subtle text-danger-emphasis rounded-pill">Tidak Lulus</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
-
-
-
-                    <div class="form-group">
-
-                        <label for="prodiDosen">
-                            Program Studi
-                        </label>
-
-                        <select id="prodiDosen" required>
-
-                            <option value="">
-                                -- Pilih Program Studi --
-                            </option>
-
-                            <option value="Teknik Informatika">
-                                Teknik Informatika
-                            </option>
-
-                            <option value="Sistem Informasi">
-                                Sistem Informasi
-                            </option>
-
-                            <option value="Manajemen Informatika">
-                                Manajemen Informatika
-                            </option>
-
-                        </select>
-
-                    </div>
-
-
-
-                    <div class="form-group">
-
-                        <label for="mataKuliah">
-                            Mata Kuliah
-                        </label>
-
-                        <input type="text" id="mataKuliah" placeholder="Contoh: Pemrograman Visual" required
-                            minlength="2" maxlength="80">
-
-                    </div>
-
                 </div>
-
-
-
-                <button type="submit" class="primary-button">
-                    Simpan Data Dosen
-                </button>
-
-
-            </form>
-
-
-        </section>
-
-
-
-        <!-- OUTPUT DOSEN -->
-
-        <section class="card">
-
-
-            <div class="card-title">
-
-                <span class="card-icon">
-                    📋
-                </span>
-
-
-                <div>
-
-                    <h2>
-                        Data Dosen
-                    </h2>
-
-                    <p>
-                        Informasi dosen yang dimasukkan
-                    </p>
-
-                </div>
-
             </div>
 
-
-
-            <div id="outputDosen" class="output-box">
-
-                <p class="empty-message">
-                    Data dosen akan tampil di sini.
-                </p>
-
-            </div>
-
-
-        </section>
-
-
-
-        <!-- PEDOMAN PENILAIAN -->
-
-        <section class="card" id="pedomanNilaiCard">
-
-
-            <div class="card-title">
-
-                <span class="card-icon">
-                    📖
-                </span>
-
-
-                <div>
-
-                    <h2>
-                        Ketentuan & Pedoman Nilai Huruf
-                    </h2>
-
-                    <p>
-                        Standar acuan konversi nilai angka ke nilai huruf dan status kelulusan mahasiswa
-                    </p>
-
-                </div>
-
-            </div>
-
-
-
-            <div class="table-wrapper">
-
-                <table class="guideline-table">
-
-                    <thead>
-
-                        <tr>
-
-                            <th>Rentang Nilai</th>
-
-                            <th>Nilai Huruf</th>
-
-                            <th>Bobot</th>
-
-                            <th>Predikat</th>
-
-                            <th>Status</th>
-
-                        </tr>
-
-                    </thead>
-
-                    <tbody id="pedomanTbody">
-
-                        <tr data-grade="A">
-
-                            <td><strong>85.00 – 100.00</strong></td>
-
-                            <td><span class="grade-badge grade-a">A</span></td>
-
-                            <td>4.00</td>
-
-                            <td>Sangat Baik</td>
-
-                            <td><span class="status-lulus">Lulus</span></td>
-
-                        </tr>
-
-                        <tr data-grade="B+">
-
-                            <td><strong>80.00 – 84.99</strong></td>
-
-                            <td><span class="grade-badge grade-b-plus">B+</span></td>
-
-                            <td>3.50</td>
-
-                            <td>Baik Sekali</td>
-
-                            <td><span class="status-lulus">Lulus</span></td>
-
-                        </tr>
-
-                        <tr data-grade="B">
-
-                            <td><strong>75.00 – 79.99</strong></td>
-
-                            <td><span class="grade-badge grade-b">B</span></td>
-
-                            <td>3.00</td>
-
-                            <td>Baik</td>
-
-                            <td><span class="status-lulus">Lulus</span></td>
-
-                        </tr>
-
-                        <tr data-grade="C+">
-
-                            <td><strong>65.00 – 74.99</strong></td>
-
-                            <td><span class="grade-badge grade-c-plus">C+</span></td>
-
-                            <td>2.50</td>
-
-                            <td>Cukup Baik</td>
-
-                            <td><span class="status-lulus">Lulus</span></td>
-
-                        </tr>
-
-                        <tr data-grade="C">
-
-                            <td><strong>55.00 – 64.99</strong></td>
-
-                            <td><span class="grade-badge grade-c">C</span></td>
-
-                            <td>2.00</td>
-
-                            <td>Cukup</td>
-
-                            <td><span class="status-lulus">Lulus</span></td>
-
-                        </tr>
-
-                        <tr data-grade="D">
-
-                            <td><strong>40.00 – 54.99</strong></td>
-
-                            <td><span class="grade-badge grade-d">D</span></td>
-
-                            <td>1.00</td>
-
-                            <td>Kurang</td>
-
-                            <td><span class="status-tidak">Tidak Lulus</span></td>
-
-                        </tr>
-
-                        <tr data-grade="E">
-
-                            <td><strong>0.00 – 39.99</strong></td>
-
-                            <td><span class="grade-badge grade-e">E</span></td>
-
-                            <td>0.00</td>
-
-                            <td>Gagal</td>
-
-                            <td><span class="status-tidak">Tidak Lulus</span></td>
-
-                        </tr>
-
-                    </tbody>
-
-                </table>
-
-            </div>
-
-
-        </section>
-
-
-
-        <!-- INPUT NILAI -->
-
-        <section class="card">
-
-
-            <div class="card-title">
-
-                <span class="card-icon">
-                    📝
-                </span>
-
-
-                <div>
-
-                    <h2>
-                        Input Nilai Mahasiswa
-                    </h2>
-
-                    <p>
-                        Dosen dapat memasukkan nilai mahasiswa (nilai huruf ditentukan otomatis)
-                    </p>
-
-                </div>
-
-            </div>
-
-
-
-            <form id="formNilai">
-
-                <p class="required-note"><span aria-hidden="true">*</span> Wajib diisi</p>
-
-
-                <div class="form-grid">
-
-
-                    <div class="form-group">
-
-                        <label for="namaMahasiswaNilai">
-                            Nama Mahasiswa
-                        </label>
-
-                        <input type="text" id="namaMahasiswaNilai" placeholder="Nama mahasiswa" required minlength="3"
-                            pattern="[A-Za-z\s]+" title="Nama Mahasiswa harus menggunakan huruf">
-
+            <!-- FORM INPUT NILAI MAHASISWA & REKAP NILAI -->
+            <div class="col-12 col-lg-7">
+                <div class="custom-card mb-4">
+                    <div class="card-header-clean">
+                        <div class="d-flex align-items-center gap-2">
+                            <div class="card-header-icon" style="background: #eff6ff; color: #2563eb;">
+                                <i class="bi bi-pencil-square"></i>
+                            </div>
+                            <div>
+                                <h2 class="h6 fw-bold mb-0">Input Nilai Mahasiswa</h2>
+                                <small class="text-muted">Nilai huruf dan kelulusan terhitung otomatis</small>
+                            </div>
+                        </div>
                     </div>
 
+                    <div class="p-3 p-md-4">
+                        <div id="alertNilaiContainer"></div>
 
+                        <form id="formNilai" novalidate>
+                            <div class="row g-3">
+                                <div class="col-12 col-sm-6">
+                                    <label for="namaMahasiswaNilai" class="form-label">Nama Mahasiswa <span class="text-danger">*</span></label>
+                                    <input type="text" class="form-control" id="namaMahasiswaNilai" placeholder="Nama mahasiswa" required minlength="3">
+                                </div>
 
-                    <div class="form-group">
+                                <div class="col-12 col-sm-6">
+                                    <label for="nimNilai" class="form-label">NIM Mahasiswa <span class="text-danger">*</span></label>
+                                    <input type="text" class="form-control font-monospace" id="nimNilai" placeholder="Contoh: 23010101" required inputmode="numeric" minlength="8" maxlength="15">
+                                    <small id="hintNimNilai" class="form-text text-muted">NIM wajib diisi 8–15 angka dan belum pernah diinput.</small>
+                                </div>
 
-                        <label for="nimNilai">
-                            NIM
-                        </label>
+                                <div class="col-12 col-sm-6">
+                                    <label for="nilaiAngka" class="form-label">Nilai Angka (0 – 100) <span class="text-danger">*</span></label>
+                                    <input type="number" class="form-control font-monospace" id="nilaiAngka" min="0" max="100" step="0.01" placeholder="Contoh: 85.50" required>
+                                </div>
 
-                        <input type="text" id="nimNilai" placeholder="Nomor Induk Mahasiswa" required
-                            inputmode="numeric" pattern="[0-9]{9,15}"
-                            title="NIM wajib diisi dengan 9–15 angka tanpa huruf.">
+                                <div class="col-12 col-sm-6">
+                                    <label for="nilaiHuruf" class="form-label">Nilai Huruf (Otomatis)</label>
+                                    <input type="text" class="form-control bg-light fw-bold text-primary font-monospace" id="nilaiHuruf" placeholder="Otomatis terisi..." readonly>
+                                </div>
+                            </div>
 
-                        <p class="field-hint" id="hintNimNilai">
-                            NIM wajib diisi 9–15 angka dan tidak boleh sama dengan data mahasiswa lain.
-                        </p>
+                            <!-- LIVE PREVIEW KONVERSI BOX -->
+                            <div id="previewKonversi" class="alert alert-secondary py-2 px-3 small d-flex align-items-center gap-2 my-3">
+                                <i class="bi bi-info-circle"></i> Ketik Nilai Angka untuk konversi otomatis ke nilai huruf.
+                            </div>
 
+                            <div class="d-flex gap-2">
+                                <button type="submit" class="btn btn-primary px-4">
+                                    <i class="bi bi-plus-circle me-1"></i> Simpan Nilai
+                                </button>
+                                <button type="reset" class="btn btn-outline-secondary">
+                                    <i class="bi bi-arrow-counterclockwise me-1"></i> Reset Form
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- TABEL REKAP NILAI -->
+                <div class="custom-card">
+                    <div class="card-header-clean">
+                        <div class="d-flex align-items-center gap-2">
+                            <div class="card-header-icon" style="background: #ecfdf5; color: #059669;">
+                                <i class="bi bi-bar-chart-line-fill"></i>
+                            </div>
+                            <div>
+                                <h2 class="h6 fw-bold mb-0">Rekapitulasi Nilai Mahasiswa</h2>
+                                <small class="text-muted">Daftar nilai yang telah tersimpan di sistem</small>
+                            </div>
+                        </div>
                     </div>
 
-
-
-                    <div class="form-group">
-
-                        <label for="nilaiAngka">
-                            Nilai Angka
-                        </label>
-
-                        <input type="number" id="nilaiAngka" min="0" max="100" step="0.01" placeholder="0 - 100"
-                            required>
-
+                    <div class="table-responsive">
+                        <table class="table custom-table table-hover align-middle mb-0">
+                            <thead>
+                                <tr>
+                                    <th class="text-center" style="width: 40px;">No</th>
+                                    <th>Nama</th>
+                                    <th>NIM</th>
+                                    <th class="text-center">Nilai Angka</th>
+                                    <th class="text-center">Huruf</th>
+                                    <th>Predikat</th>
+                                    <th class="text-center">Status</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tabelNilai">
+                                <!-- Diisi dinamis oleh script.js -->
+                            </tbody>
+                        </table>
                     </div>
-
-
-
-                    <div class="form-group">
-
-                        <label for="nilaiHuruf" class="no-asterisk">
-                            Nilai Huruf
-                        </label>
-
-                        <input type="text" id="nilaiHuruf" placeholder="Otomatis dari nilai angka" readonly
-                            aria-readonly="true">
-
-                        <p class="field-hint" id="hintNilaiHuruf">
-                            Terisi otomatis sesuai pedoman ketentuan nilai.
-                        </p>
-
-                    </div>
-
                 </div>
-
-
-                <!-- LIVE PREVIEW KONVERSI -->
-
-                <div id="previewKonversi" class="conversion-preview" aria-live="polite">
-
-                    <span class="preview-icon">ℹ️</span>
-
-                    <span class="preview-text">
-                        Ketik <strong>Nilai Angka</strong> untuk melihat penentuan nilai huruf, predikat, dan status
-                        kelulusan secara otomatis.
-                    </span>
-
-                </div>
-
-                <div class="button-group">
-                    <button type="submit" class="primary-button">Tambah Nilai</button>
-                    <button type="reset" class="secondary-button">Reset Form</button>
-                </div>
-
-
-            </form>
-
-
-        </section>
-
-
-
-        <!-- REKAP NILAI -->
-
-        <section class="card">
-
-
-            <div class="card-title">
-
-                <span class="card-icon">
-                    📊
-                </span>
-
-
-                <div>
-
-                    <h2>
-                        Rekap Nilai
-                    </h2>
-
-                    <p>
-                        Daftar nilai mahasiswa yang telah disimpan
-                    </p>
-
-                </div>
-
             </div>
 
-
-
-            <div class="table-wrapper">
-
-
-                <table>
-
-                    <thead>
-
-                        <tr>
-
-                            <th>
-                                No
-                            </th>
-
-                            <th>
-                                Nama
-                            </th>
-
-                            <th>
-                                NIM
-                            </th>
-
-                            <th>
-                                Nilai Angka
-                            </th>
-
-                            <th>
-                                Nilai Huruf
-                            </th>
-
-                            <th>
-                                Predikat
-                            </th>
-
-                            <th>
-                                Status
-                            </th>
-
-                        </tr>
-
-                    </thead>
-
-
-                    <tbody id="tabelNilai">
-
-                        <tr>
-
-                            <td colspan="7" class="empty-table">
-                                Belum ada data nilai.
-                            </td>
-
-                        </tr>
-
-                    </tbody>
-
-                </table>
-
-
-            </div>
-
-
-        </section>
-
+        </div>
 
     </main>
 
-
-
-    <footer class="main-footer">
-
-        <p>
-            Aplikasi Akademik © 2026
-        </p>
-
+    <!-- FOOTER -->
+    <footer class="main-footer mt-auto py-3">
+        <div class="container-fluid px-lg-4 text-center">
+            <p class="mb-0 text-muted small">
+                © 2026 Ruang Akademik &bull; Tugas Praktikum Pemrograman Visual Pertemuan 5 &bull; Redesign UI/UX
+            </p>
+        </div>
     </footer>
 
+    <!-- Bootstrap 5 Bundle JS CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
-
+    <!-- Custom Logic Script -->
     <script src="script.js"></script>
-
 
 </body>
 
